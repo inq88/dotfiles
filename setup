@@ -8,22 +8,19 @@ green=$(tput setaf 2)
 normal=$(tput sgr0)
 
 title() {
-  echo "${bold}==> $1${normal}"
+  echo "${bold}====> $1${normal}"
   echo
 }
 
 indent() {
   sed 's/^/  /'
+  echo
 }
 
 echo
-
-
 
 # Install symlinks
 title "Configuring software..."
 ./scripts/install-symlinks
 
-
-
-echo "${green}All done!${normal}" | indent
+echo "${green}🏠 Welcome home!${normal}" | indent

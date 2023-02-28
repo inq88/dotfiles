@@ -4,6 +4,15 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 
 export DOTFILES=$HOME/.dotfiles
 
+# Set ZSH options
+unsetopt BEEP
+
+setopt autocd extendedglob nomatch menucomplete
+
+# Customize prompt
+PROMPT='
+%1~ %L $ '
+
 # Source configuration files
 for file in $DOTFILES/config/*.zsh; do source $file; done
 if [[ -a ~/.localrc ]]; then source ~/.localrc; fi
