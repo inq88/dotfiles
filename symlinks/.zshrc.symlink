@@ -1,0 +1,6 @@
+echo "Hello from .zshrc..."
+
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# export ZDOTDIR=~/.config/zsh
+# [[ -f $ZDOTDIR/.zshenv ]] && . $ZDOTDIR/.zshenv
