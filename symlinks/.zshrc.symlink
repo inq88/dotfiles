@@ -2,5 +2,8 @@ echo "Hello from .zshrc..."
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
-# export ZDOTDIR=~/.config/zsh
-# [[ -f $ZDOTDIR/.zshenv ]] && . $ZDOTDIR/.zshenv
+export DOTFILES=$HOME/.dotfiles
+
+# Source configuration files
+for file in $DOTFILES/config/*.zsh; do source $file; done
+if [[ -a ~/.localrc ]]; then source ~/.localrc; fi

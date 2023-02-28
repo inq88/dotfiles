@@ -23,29 +23,29 @@ fail () {
   exit
 }
 
-# setup_gitconfig () {
-#   if ! [ -f symlinks/.gitconfig.symlink ]
-#   then
-#     info 'setup gitconfig'
+setup_gitconfig () {
+  if ! [ -f symlinks/.gitconfig.symlink ]
+  then
+    info 'setup gitconfig'
 
-#     git_credential='cache'
-#     if [ "$(uname -s)" == "Darwin" ]
-#     then
-#       git_credential='osxkeychain'
-#     fi
+    git_credential='cache'
+    if [ "$(uname -s)" == "Darwin" ]
+    then
+      git_credential='osxkeychain'
+    fi
 
-#     user ' - What is your GitHub author name?'
-#     read -e git_authorname
-#     user ' - What is your GitHub author email?'
-#     read -e git_authoremail
-#     user ' - What is your signing key?'
-#     read -e git_signingkey
+    user ' - What is your GitHub author name?'
+    read -e git_authorname
+    user ' - What is your GitHub author email?'
+    read -e git_authoremail
+    user ' - What is your signing key?'
+    read -e git_signingkey
 
-#     sed -e "s/AUTHORNAME/$git_authorname/g" -e "s/AUTHOREMAIL/$git_authoremail/g" -e "s/SIGNINGKEY/$git_signingkey/g" -e "s/GIT_CREDENTIAL_HELPER/$git_credential/g" symlinks/.gitconfig.symlink.example > symlinks/.gitconfig.symlink
+    sed -e "s|AUTHORNAME|$git_authorname|g" -e "s|AUTHOREMAIL|$git_authoremail|g" -e "s|SIGNINGKEY|$git_signingkey|g" -e "s|GIT_CREDENTIAL_HELPER|$git_credential|g" symlinks/.gitconfig.symlink.template > symlinks/.gitconfig.symlink
 
-#     success 'gitconfig'
-#   fi
-# }
+    success 'gitconfig'
+  fi
+}
 
 
 link_file () {
@@ -147,7 +147,6 @@ install_dotfiles () {
   done
 }
 
-# setup_gitconfig
+setup_gitconfig
 install_dotfiles
-
 echo
