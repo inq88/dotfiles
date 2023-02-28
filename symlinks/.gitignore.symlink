@@ -1,0 +1,8 @@
+# Folder view configuration files
+.DS_Store
+
+# Thumbnail cache files
+Thumbs.db
+
+# Ignore Intellij files
+.idea

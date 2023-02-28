@@ -1,0 +1,29 @@
+#!/bin/bash
+set -eu
+
+cd "$(dirname $0)"
+
+bold=$(tput bold)
+green=$(tput setaf 2)
+normal=$(tput sgr0)
+
+title() {
+  echo "${bold}==> $1${normal}"
+  echo
+}
+
+indent() {
+  sed 's/^/  /'
+}
+
+echo
+
+
+
+# Install symlinks
+title "Configuring software..."
+./scripts/install-symlinks
+
+
+
+echo "${green}All done!${normal}" | indent
