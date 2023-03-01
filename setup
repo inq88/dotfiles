@@ -19,8 +19,18 @@ indent() {
 
 echo
 
+# Create directories
+mkdir -p ~/Code/Repos
+mkdir -p ~/Code/Forks
+mkdir -p ~/Code/Job
+mkdir -p ~/Code/Sandbox
+
 # Install symlinks
 title "Configuring software..."
 ./scripts/install-symlinks
+
+# Set MacOS defaults
+title "Setting MacOS defaults..."
+./scripts/osx_defaults
 
 echo "${green}🏠 Welcome home!${normal}" | indent

@@ -1,18 +1,21 @@
-echo "Hello from .zshrc..."
-
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
 export DOTFILES=$HOME/.dotfiles
 
-# Set ZSH options
-unsetopt BEEP
+# zsh config dir
+export ZDOTDIR=$DOTFILES/config/zsh
 
+# Set ZSH options
 setopt autocd extendedglob nomatch menucomplete
+unsetopt BEEP # Beeping is annoying
+
+# Useful Functions
+source $ZDOTDIR/functions
 
 # Customize prompt
-PROMPT='
-%1~ %L $ '
+zsh_add_file "prompt"
+zsh_add_file "aliases"
 
 # Source configuration files
-for file in $DOTFILES/config/*.zsh; do source $file; done
-if [[ -a ~/.localrc ]]; then source ~/.localrc; fi
+# for file in $DOTFILES/config/*.zsh; do source $file; done
+# if [[ -a ~/.localrc ]]; then source ~/.localrc; fi
