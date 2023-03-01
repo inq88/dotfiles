@@ -6,8 +6,26 @@ export DOTFILES=$HOME/.dotfiles
 export ZDOTDIR=$DOTFILES/config/zsh
 
 # Set ZSH options
+# some useful options (man zshoptions)
 setopt autocd extendedglob nomatch menucomplete
-unsetopt BEEP # Beeping is annoying
+setopt interactive_comments
+stty stop undef		# Disable ctrl-s to freeze terminal.
+zle_highlight=('paste:none')
+
+# beeping is annoying
+unsetopt BEEP
+
+# completions
+autoload -Uz compinit
+zstyle ':completion:*' menu select
+zstyle ':completion::complete:lsof:*' menu yes select
+zmodload zsh/complist
+compinit
+
+autoload -U up-line-or-beginning-search
+autoload -U down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
 
 # Useful Functions
 source $ZDOTDIR/functions
@@ -15,6 +33,9 @@ source $ZDOTDIR/functions
 # Customize prompt
 zsh_add_file "prompt"
 zsh_add_file "aliases"
+
+zsh_add_plugin "zsh-users/zsh-autosuggestions"
+zsh_add_plugin "zsh-users/zsh-syntax-highlighting"
 
 # Source configuration files
 # for file in $DOTFILES/config/*.zsh; do source $file; done
