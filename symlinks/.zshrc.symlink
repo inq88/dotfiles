@@ -15,11 +15,11 @@ stty stop undef		# Disable ctrl-s to freeze terminal.
 unsetopt BEEP
 
 # completions
-#autoload -Uz compinit
-#zstyle ':completion:*' menu select
-#zstyle ':completion::complete:lsof:*' menu yes select
-#zmodload zsh/complist
-#compinit
+autoload -Uz compinit
+zstyle ':completion:*' menu select
+zstyle ':completion::complete:lsof:*' menu yes select
+zmodload zsh/complist
+compinit
 
 autoload -U up-line-or-beginning-search
 autoload -U down-line-or-beginning-search
@@ -28,7 +28,6 @@ zle -N down-line-or-beginning-search
 
 # Useful Functions
 source $ZDOT/functions.zsh
-
 
 # for file in $DOTFILES/config/*.zsh; do source $file; done
 # if [[ -a ~/.localrc ]]; then source ~/.localrc; fi
@@ -44,4 +43,3 @@ SAVEHIST=10000
 
 #zsh_add_plugin "zsh-users/zsh-autosuggestions"
 #zsh_add_plugin "zsh-users/zsh-syntax-highlighting"
-

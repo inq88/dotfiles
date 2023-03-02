@@ -35,7 +35,7 @@ setup_machine_name () {
   info 'set the machine name'
 
   user ' - What should be the name of this machine? [$(scutil --get ComputerName)] '
-  read -e machine_namewwww
+  read -e machine_name
   if [ -z "$machine_name" ]
   then
     export COMPUTERNAME=$(scutil --get ComputerName)
