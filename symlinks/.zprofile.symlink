@@ -14,3 +14,4 @@ fi
 export SHELL_SESSIONS_DISABLE=1
 
 export DOTFILES=$HOME/.dotfiles
+export ZDOT=$DOTFILES/config

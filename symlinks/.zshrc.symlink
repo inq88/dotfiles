@@ -27,7 +27,11 @@ zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
 
 # Useful Functions
-source $ZDOT/functions
+source $ZDOT/functions.zsh
+
+
+# for file in $DOTFILES/config/*.zsh; do source $file; done
+# if [[ -a ~/.localrc ]]; then source ~/.localrc; fi
 
 # Customize prompt
 zsh_add_file "prompt"
@@ -41,6 +45,3 @@ SAVEHIST=10000
 #zsh_add_plugin "zsh-users/zsh-autosuggestions"
 #zsh_add_plugin "zsh-users/zsh-syntax-highlighting"
 
-# Source configuration files
-# for file in $DOTFILES/config/*.zsh; do source $file; done
-# if [[ -a ~/.localrc ]]; then source ~/.localrc; fi
