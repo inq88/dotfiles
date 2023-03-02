@@ -1,7 +1,5 @@
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
-export DOTFILES=$HOME/.dotfiles
-
 # Source configuration files
 for file in $DOTFILES/config/*.zsh; do source $file; done
 if [[ -a ~/.localrc ]]; then source ~/.localrc; fi
@@ -29,7 +27,7 @@ zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
 
 # Useful Functions
-source $$ZDOT/functions
+source $ZDOT/functions
 
 # Customize prompt
 zsh_add_file "prompt"

@@ -12,3 +12,5 @@ fi
 
 # Make Apple Terminal behave
 export SHELL_SESSIONS_DISABLE=1
+
+export DOTFILES=$HOME/.dotfiles
