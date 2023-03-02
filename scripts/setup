@@ -27,10 +27,10 @@ mkdir -p ~/Code/Sandbox
 
 # Install symlinks
 title "Configuring software..."
-./scripts/install-symlinks
+./install-symlinks
 
 # Set MacOS defaults
 title "Setting MacOS defaults..."
-./scripts/osx_defaults
+./osx_defaults
 
 echo "${green}🏠 Welcome home!${normal}" | indent
