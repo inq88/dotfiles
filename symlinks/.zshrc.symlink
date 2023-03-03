@@ -40,6 +40,33 @@ zsh_add_file "aliases"
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
-
 #zsh_add_plugin "zsh-users/zsh-autosuggestions"
 #zsh_add_plugin "zsh-users/zsh-syntax-highlighting"
+
+. /opt/homebrew/opt/asdf/libexec/asdf.sh
+
+. /opt/homebrew/etc/profile.d/z.sh
+
+if type brew &>/dev/null; then
+  HOMEBREW_PREFIX=$(brew --prefix)
+  NEWPATH=${PATH}
+  # gnubin; gnuman
+  for d in ${HOMEBREW_PREFIX}/opt/*/libexec/gnubin; do NEWPATH=$d:$NEWPATH; done
+  # I actually like that man grep gives the BSD grep man page
+  #for d in ${HOMEBREW_PREFIX}/opt/*/libexec/gnuman; do export MANPATH=$d:$MANPATH; done
+ export PATH=$(echo ${NEWPATH} | tr ':' '\n' | cat -n | sort -uk2 | sort -n | cut -f2- | xargs | tr ' ' ':')
+fi
+
+export PKG_CONFIG_PATH="/opt/homebrew/opt/openssl/lib/pkgconfig"
+export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:/opt/homebrew/opt/libtiff/lib/pkgconfig"
+export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:/opt/homebrew/opt/gmp/lib/pkgconfig"
+export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:/opt/homebrew/opt/libpng/lib/pkgconfig"
+export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:/opt/homebrew/opt/ncurses/lib/pkgconfig"
+export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:/opt/homebrew/opt/mpfr/lib/pkgconfig"
+export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:/opt/homebrew/opt/libyaml/lib/pkgconfig"
+export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:/opt/homebrew/opt/icu4c/lib/pkgconfig"
+export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:/opt/homebrew/opt/readline4/lib/pkgconfig"
+export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:/opt/homebrew/opt/webp/lib/pkgconfig"
+export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:/opt/homebrew/opt/unixodbc/lib/pkgconfig"
+export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:/opt/homebrew/opt/jpeg/lib/pkgconfig"
+export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:/opt/homebrew/opt/libpq/lib/pkgconfig"

@@ -1,26 +1,42 @@
-# Homebrew Bundle
-# https://github.com/Homebrew/homebrew-bundle
-# ------------------------------------------------------------------------------
-# CLI Tools
-# ------------------------------------------------------------------------------
+tap "hashicorp/tap"
+tap "homebrew/bundle"
+tap "homebrew/cask-fonts"
+tap "roots/tap"
+brew "libpng"
+brew "gmp"
+brew "openssl@3"
+brew "unixodbc"
+brew "asdf"
 brew "bat"
+brew "bison"
 brew "exa"
+brew "gawk"
+brew "gh"
 brew "git"
+brew "gnupg"
 brew "httpie"
+brew "icu4c"
+brew "imagemagick"
+brew "libiconv"
+brew "libpq"
+brew "libsodium"
+brew "libzip"
 brew "mas"
 brew "nano"
+brew "oniguruma"
+brew "pkg-config"
+brew "re2c"
 brew "spaceship"
 brew "speedtest-cli"
 brew "tldr"
-# ------------------------------------------------------------------------------
-# Taps
-# ------------------------------------------------------------------------------
-tap "homebrew/bundle"
-tap "homebrew/cask-fonts"
-# ------------------------------------------------------------------------------
-# Cask
-# ------------------------------------------------------------------------------
-# Fonts
+brew "wp-cli"
+brew "z"
+brew "roots/tap/trellis-cli-dev", args: ["HEAD"]
+cask "1password"
+cask "1password-cli"
+cask "alfred"
+cask "dropbox"
+cask "figma"
 cask "font-fira-code"
 cask "font-fira-mono-for-powerline"
 cask "font-ibm-plex-mono"
@@ -29,20 +45,12 @@ cask "font-jetbrains-mono"
 cask "font-roboto"
 cask "font-roboto-flex"
 cask "font-roboto-mono"
-# Development
-cask "1password-cli"
+cask "google-chrome"
+cask "hashicorp-vagrant"
 cask "iterm2"
+cask "obsidian"
 cask "phpstorm"
+cask "vagrant"
 cask "visual-studio-code"
 cask "webstorm"
-# Desktop applications
-cask "1password"
-cask "alfred"
-cask "dropbox"
-cask "figma"
-cask "google-chrome"
-cask "obsidian"
-# ------------------------------------------------------------------------------
-# App Store applications
-# ------------------------------------------------------------------------------
 mas "Amphetamine", id: 937984704
