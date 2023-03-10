@@ -1,6 +1,8 @@
 # Fig pre block. Keep at the top of this file.
 [[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
+
 eval "$(/opt/homebrew/bin/brew shellenv)"
+eval "$(trellis shell-init zsh)"
 
 # Source configuration files
 for file in $DOTFILES/config/*.zsh; do source $file; done
@@ -17,11 +19,13 @@ stty stop undef		# Disable ctrl-s to freeze terminal.
 unsetopt BEEP
 
 # completions
-autoload -Uz compinit
-zstyle ':completion:*' menu select
-zstyle ':completion::complete:lsof:*' menu yes select
-zmodload zsh/complist
-compinit
+if type brew &>/dev/null
+then
+  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+
+  autoload -Uz compinit
+  compinit
+fi
 
 autoload -U up-line-or-beginning-search
 autoload -U down-line-or-beginning-search
@@ -46,7 +50,6 @@ SAVEHIST=10000
 #zsh_add_plugin "zsh-users/zsh-syntax-highlighting"
 
 . /opt/homebrew/opt/asdf/libexec/asdf.sh
-
 . /opt/homebrew/etc/profile.d/z.sh
 
 if type brew &>/dev/null; then
